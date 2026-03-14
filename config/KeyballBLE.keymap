@@ -30,6 +30,15 @@
             bindings = <&to 0 &macro_param_1to1 &kp MACRO_PLACEHOLDER>;
             label = "TO_LAYER_0";
         };
+
+        clear_macro: clear_macro {
+            compatible = "zmk,behavior-macro-one-param";
+            #binding-cells = <1>;
+            wait-ms = <30>;
+            tap-ms = <30>;
+            bindings = <&kp SLASH &kp C &kp L &kp E &kp A &kp R &kp ENTER>;
+            label = "CLEAR_MACRO";
+        };
     };
 
     behaviors {
@@ -40,6 +49,16 @@
 
             #binding-cells = <2>;
             tapping-term-ms = <200>;
+        };
+
+        ht_clear: ht_clear {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HT_CLEAR";
+            bindings = <&clear_macro>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            flavor = "balanced";
         };
 
         rotate: rotate {
@@ -59,7 +78,7 @@
             bindings = <
 &kp Q             &kp W         &kp E         &kp R                        &kp T                                                          &kp Y        &kp U  &kp I      &kp O       &kp P
 &kp A             &lt 4 S       &kp D         &kp F                        &kp G        &mkp MB1                           &kp AT         &kp H        &kp J  &kp K      &lt 4 L     &kp MINUS
-&mt LEFT_SHIFT Z  &kp X         &kp C         &kp V                        &kp B        &mkp MB2                           &none          &kp N        &kp M  &kp COMMA  &kp PERIOD  &kp PLUS
+&mt LEFT_SHIFT Z  &kp X         &ht_clear 0 C  &kp V                        &kp B        &mkp MB2                           &none          &kp N        &kp M  &kp COMMA  &kp PERIOD  &kp PLUS
 &kp LCTRL         &kp LEFT_WIN  &kp LEFT_ALT  &lt_to_layer_0 6 INT_HENKAN  &lt 2 SPACE  &lt_to_layer_0 3 INT_MUHENKAN      &kp BACKSPACE  &lt 1 ENTER                                &kp DEL
             >;
 
