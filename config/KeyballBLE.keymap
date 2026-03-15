@@ -36,7 +36,7 @@
             #binding-cells = <1>;
             wait-ms = <30>;
             tap-ms = <30>;
-            bindings = <&kp INT_MUHENKAN &kp SLASH &kp C &kp L &kp E &kp A &kp R &kp ENTER>;
+            bindings = <&kp LANGUAGE_2 &kp SLASH &kp C &kp L &kp E &kp A &kp R &kp ENTER>;
             label = "CLEAR_MACRO";
         };
     };
