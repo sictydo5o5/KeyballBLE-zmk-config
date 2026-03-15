@@ -191,7 +191,7 @@
 &kp Q             &kp W         &kp E         &kp R                        &kp T                                                          &kp Y        &kp U  &kp I      &kp O       &kp P
 &kp A             &kp S         &kp D         &ht_hp GLOBE F                  &kp G        &kp AT                             &mkp MB1       &kp H        &kp J  &kp K      &kp L       &kp SEMICOLON
 &mt LEFT_SHIFT Z  &kp X         &ht_clear 0 C  &kp V                        &lt_f18 0 B  &kp UNDERSCORE                     &mkp MB2       &kp N        &kp M  &kp COMMA  &kp PERIOD  &kp PLUS
-&kp LEFT_WIN      &mt LCTRL ESC  &mt LEFT_ALT TAB  &lt_f13 0 INT_HENKAN         &lt_f14 0 SPACE  &lt_f15 0 INT_MUHENKAN              &kp BACKSPACE  &lt_f16 0 ENTER                            &kp DEL
+&kp LEFT_WIN      &mt LCTRL ESC  &mt LEFT_ALT TAB  &lt_f13 0 LANGUAGE_2         &lt_f14 0 SPACE  &lt_f15 0 LANGUAGE_1              &kp BACKSPACE  &lt_f16 0 ENTER                            &kp DEL
             >;
 
             sensor-bindings = <&inc_dec_kp PAGE_UP PAGE_DOWN>;
