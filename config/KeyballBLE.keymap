@@ -278,13 +278,14 @@
             >;
         };
 
-        // Layer 8: デスクトップ切替（BS長押しで遷移）
-        DESKTOP {
+        // Layer 8: 操作モード（Enter長押しで遷移）
+        // デスクトップ切替 + VBE開発ショートカット（Mac/Windows共通）
+        OPERATION {
             bindings = <
-&trans  &trans  &trans  &trans  &trans                      &trans  &trans            &trans  &trans             &trans
-&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &kp LC(LEFT)      &trans  &kp LC(RIGHT)      &trans
-&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &trans            &trans  &trans             &trans
-&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans                                              &trans
+&trans  &trans  &trans  &trans  &trans                      &trans        &kp F5            &kp F8          &trans             &trans
+&trans  &trans  &trans  &trans  &trans  &trans      &trans  &kp LC(G)     &kp LC(LEFT)      &kp LC(SPACE)   &kp LC(RIGHT)      &trans
+&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans        &trans            &trans          &trans             &trans
+&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans                                                            &trans
             >;
         };
     };
