@@ -17,31 +17,18 @@
     combos {
         compatible = "zmk,combos";
 
-        double_quotation {
-            bindings = <&kp DOUBLE_QUOTES>;
-            key-positions = <20 21>;
-            timeout-ms = <50>;
-        };
-
-        // 診断用: J+K 2キーコンボ → F17（Hammerspoonログで発火確認）
-        diag_jk {
-            bindings = <&kp F17>;
-            key-positions = <18 19>;
-            timeout-ms = <300>;
-        };
-
-        // 3本指ドラッグ: J+K+L 同時押し → MB1ホールド（トラックボール移動でドラッグ）
-        three_finger_drag {
+        // ドラッグ: J+K 同時押し → MB1ホールド（トラックボール移動でドラッグ）
+        gesture_drag {
             bindings = <&mkp MB1>;
-            key-positions = <18 19 20>;
+            key-positions = <18 19>;
             timeout-ms = <300>;
             slow-release;
         };
 
-        // 4本指スワイプ: J+K+L+MB1 同時押し → F17（Hammerspoonでデスクトップ切替）
-        four_finger_swipe {
+        // デスクトップ切替: L+MB1 同時押し → F17（Hammerspoonでスワイプ判定）
+        gesture_swipe {
             bindings = <&kp F17>;
-            key-positions = <18 19 20 21>;
+            key-positions = <20 21>;
             timeout-ms = <300>;
             slow-release;
         };
