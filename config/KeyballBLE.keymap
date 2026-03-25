@@ -20,13 +20,14 @@
         double_quotation {
             bindings = <&kp DOUBLE_QUOTES>;
             key-positions = <20 21>;
+            timeout-ms = <50>;
         };
 
         // 3本指ドラッグ: J+K+L 同時押し → MB1ホールド（トラックボール移動でドラッグ）
         three_finger_drag {
             bindings = <&mkp MB1>;
             key-positions = <18 19 20>;
-            timeout-ms = <100>;
+            timeout-ms = <300>;
             slow-release;
         };
 
@@ -34,7 +35,7 @@
         four_finger_swipe {
             bindings = <&kp F17>;
             key-positions = <18 19 20 21>;
-            timeout-ms = <100>;
+            timeout-ms = <300>;
             slow-release;
         };
     };
