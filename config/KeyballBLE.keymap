@@ -23,6 +23,13 @@
             timeout-ms = <50>;
         };
 
+        // 診断用: J+K 2キーコンボ → F17（Hammerspoonログで発火確認）
+        diag_jk {
+            bindings = <&kp F17>;
+            key-positions = <18 19>;
+            timeout-ms = <300>;
+        };
+
         // 3本指ドラッグ: J+K+L 同時押し → MB1ホールド（トラックボール移動でドラッグ）
         three_finger_drag {
             bindings = <&mkp MB1>;
