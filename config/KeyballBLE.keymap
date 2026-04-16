@@ -158,8 +158,8 @@
             bindings = <&mo3_f15>, <&kp>;
 
             #binding-cells = <2>;
-            tapping-term-ms = <200>;
-            flavor = "balanced";
+            tapping-term-ms = <400>;
+            flavor = "hold-preferred";
         };
 
         lt_f16: lt_f16 {
