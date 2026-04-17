@@ -1,11 +1,16 @@
 #!/bin/bash
 # flash.sh — Keyball BLE ファームウェアフラッシュ自動化
+#
+# ⚠️  重要: ZMK スプリット BLE は左右が同一バージョンでないと誤動作します
+#     ファームウェア更新は必ず左右同時に行ってください。
+#     → 通常の更新: ./scripts/flash.sh quick
+#
 # 使い方:
 #   ./scripts/flash.sh          → フルリセット（settings_reset + L/R + BT再接続）
-#   ./scripts/flash.sh quick    → ファームウェアのみ（R + L）
+#   ./scripts/flash.sh quick    → ファームウェアのみ（R + L）← 通常はこれ
 #   ./scripts/flash.sh reset    → settings_reset のみ（左右）
-#   ./scripts/flash.sh right    → 右手のみ
-#   ./scripts/flash.sh left     → 左手のみ
+#   ./scripts/flash.sh right    → 右手のみ（警告あり）
+#   ./scripts/flash.sh left     → 左手のみ（警告あり）
 
 set -euo pipefail
 
@@ -251,16 +256,40 @@ case "$MODE" in
         ;;
 
     right)
+        echo ""
+        echo -e "${YELLOW}⚠️  警告: ZMK スプリット BLE は左右が同一バージョンでないと誤動作します${NC}"
+        echo -e "${YELLOW}   ファームウェア更新は必ず左右同時に行ってください → ./scripts/flash.sh quick${NC}"
+        echo -e "${YELLOW}   右手のみ更新すると左手側のキーが正常に動作しなくなります。${NC}"
+        echo ""
+        echo -n "  それでも右手のみフラッシュしますか？ (yes/N): "
+        read -r confirm
+        if [ "$confirm" != "yes" ]; then
+            echo "中止しました。両手更新は: ./scripts/flash.sh quick"
+            exit 0
+        fi
         say "右手を USB-C で接続してください"
         wait_for_mount
         flash_uf2 "$FW_R" "右手 KeyballBLE_R"
+        warn "左手もすぐに同じファームウェアで更新してください: ./scripts/flash.sh left"
         ok "右手フラッシュ完了！"
         ;;
 
     left)
+        echo ""
+        echo -e "${YELLOW}⚠️  警告: ZMK スプリット BLE は左右が同一バージョンでないと誤動作します${NC}"
+        echo -e "${YELLOW}   ファームウェア更新は必ず左右同時に行ってください → ./scripts/flash.sh quick${NC}"
+        echo -e "${YELLOW}   左手のみ更新すると右手側のキーが正常に動作しなくなります。${NC}"
+        echo ""
+        echo -n "  それでも左手のみフラッシュしますか？ (yes/N): "
+        read -r confirm
+        if [ "$confirm" != "yes" ]; then
+            echo "中止しました。両手更新は: ./scripts/flash.sh quick"
+            exit 0
+        fi
         say "左手を USB-C で接続してください"
         wait_for_mount
         flash_uf2 "$FW_L" "左手 KeyballBLE_L"
+        warn "右手もすぐに同じファームウェアで更新してください: ./scripts/flash.sh right"
         ok "左手フラッシュ完了！"
         ;;
 
